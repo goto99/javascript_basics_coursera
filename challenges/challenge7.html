@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Basic Challenges: Chanllenge 4</title>
+</head>
+<body>
+    <h1>Javascript Basic Challenges</h1>
+    <h2>Challenge 4</h2>
+    
+    <script>
+        let num = Number(prompt("Enter a number please:"));
+        if (isNaN(num)){
+            console.log("ERROR: you didn't enter a number!");
+        }else if (num < 10){
+            console.log("you entered a number less than 10");
+            for (let i = 0; i < 10; i++){
+                console.log(`Here is a ${i}`);
+            }
+        }else{
+            console.log("You entered a big nmuber");
+        } 
+
+    </script>
+</body>
+</html>

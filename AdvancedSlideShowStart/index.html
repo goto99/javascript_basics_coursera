@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Show with Cross Fade</title>
+
+    <link href="styles.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="content">
+        <img src="slides/image1.jpg" alt="slideshow image" id="myimage">
+    </div>
+
+    <p id="links"><a href="#" id="previous">previous</a><a href="#" id="next">next</a></p>
+
+    <script>
+            const imgTag = document.getElementById('myimage');
+            imgTag.classList.add('fadeinimg');
+            
+            const previousTag = document.getElementById('previous');
+            const nextTag = document.getElementById('next');
+            const container = document.getElementById('content');
+            const images = ['image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg', 'image5.jpg'];
+            
+            let currentImage = 0;
+
+            function swapImage() {
+                const newSlide = document.createElement('img');
+                newSlide.className = "fadeinimg";
+                newSlide.src = `slides/${images[currentImage]}`;
+                container.appendChild(newSlide);
+                if (container.children.length > 2){container.removeChild(container.children[0]);}
+            }
+
+            previousTag.addEventListener('click', function(event){
+                event.preventDefault();
+                if (currentImage > 0) {
+                    currentImage--; 
+                }else {
+                    currentImage = images.length - 1;
+                }
+                swapImage();
+            });
+        
+            nextTag.addEventListener('click', function(event){
+                event.preventDefault();
+                if (currentImage < images.length - 1) {
+                    currentImage++; 
+                }else {
+                    currentImage = 0;
+                }
+                swapImage();
+            });
+        
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Basic Challenges: Challenge 27</title>
+</head>
+<body>
+    <h1>Javascript Basic Challenges: Challenge 27</h1>
+    <form action="">
+        <label>Enter a number <input type="text"></label>
+        <input type="submit" value="send number">
+    </form>
+    
+    <script>
+        const h1 = document.querySelector('h1');
+        const form = document.querySelector("form");
+
+        const input = form.querySelector("label>input");
+        const submit = form.querySelector("input");
+        form.addEventListener('submit', function(event){
+            event.preventDefault();
+
+            let num = Number(input.value); //Notice how to get the input value.
+            if (isNaN(num)){
+                alert("Please enter a number!");
+            }else{
+                h1.style.fontSize = `${num}px`;
+            }
+        });
+
+    </script>
+</body>
+</html>

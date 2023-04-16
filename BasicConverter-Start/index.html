@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Miles to Kilometers Converter</title>
+	
+	<!--/ /-------- Normalize CSS --------/ /-->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+	
+	<!--/ /-------- Google Fonts --------/ /-->
+	<link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans&display=swap" rel="stylesheet">
+	
+	<!--/ /-------- My Styles --------/ /-->
+	<link href="styles.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<h1>Miles to Kilometers Converter</h1>
+    
+    <div class="container top">
+    	<p>Type in a number of miles and click the button to convert the distance to kilometers.</p>
+        
+        <form method="post" id="convert">
+        
+        	<input type="text" name="distance" id="distance" placeholder="distance">
+            <input type="submit" name="convertdist" value="Convert Distance">
+        
+        </form>
+    </div>
+    <div class="container bottom" id="answer">
+    	<h2 class="invisible">Answer goes here</h2>
+    </div>
+
+	<script>
+		const form = document.getElementById('convert');
+		const distance = document.getElementById('distance');
+		const submit = form.lastChild;
+		const h2Tag = document.querySelector('.invisible');
+		h2Tag.style.color = 'black';
+		const mToKilo = 1.609344;
+
+		form.addEventListener('submit', function(event){
+			event.preventDefault();
+			const miles = parseFloat(distance.value);
+			if(isNaN(miles)){
+				h2Tag.innerHTML = `Please provide a number!`;
+			}else{
+				let kilo = miles * mToKilo;
+				// alert(kilo.toFixed(3));
+				h2Tag.innerHTML = `${miles} miles converts to ${kilo.toFixed(3)} kilometers!`;
+			}
+		});
+	</script>
+</body>
+</html>

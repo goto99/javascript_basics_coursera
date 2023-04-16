@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Basic Challenges: Challenge 24</title>
+</head>
+<body>
+    <h1>Javascript Basic Challenges: Challenge 24</h1>
+    <div>
+        <p>Here is the first paragraph of text</p>
+    </div>
+    <button>Add a paragraph</button>
+    
+    <script>
+        let btn = document.querySelector('button');
+        const divTag = document.querySelector('div');
+        const para = document.createElement('p');
+        para.innerHTML = "A new paragraph";
+        btn.addEventListener('click', function(){
+            divTag.appendChild(para);
+        });
+    </script>
+</body>
+</html>

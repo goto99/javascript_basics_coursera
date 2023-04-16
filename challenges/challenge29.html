@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript Basic Challenges: Challenge 29</title>
+    <style>
+        body { height: 3000px;}
+        .one { background-color: beige; transition: all 3s; }
+        .two { background-color: blueviolet; transition: all 3s;}
+        .three { background-color: coral; transition: all 3s;}
+        .four { background-color: cornflowerblue; transition: all 3s;}
+        .five { background-color: darkgoldenrod; transition: all 3s;}
+    </style>
+</head>
+<body class='one'>
+    <h1>Javascript Basic Challenges: Challenge 29</h1>
+    <p>Scroll down</p>
+
+    <script>
+        const bodyTag = document.querySelector('body');
+        document.addEventListener('scroll', function(event){
+            const cls = ['one', 'two', 'three', 'four', 'five']
+            console.log(window.scrollY);
+            console.log(window.pageYOffset);
+            switch (true) {
+                case (window.scrollY < 500):
+                    bodyTag.className = 'one';
+                    break;
+                case (window.scrollY < 1000):
+                    bodyTag.className = 'two';
+                    break;
+                case (window.scrollY < 1500):
+                    bodyTag.className = 'three';
+                    break;
+                case (window.scrollY < 2000):
+                    bodyTag.className = 'four';
+                    break;
+                default:
+                    bodyTag.className = 'five';
+                    break;
+            }
+
+            // switch (true) {
+            //     case (window.scrollY > 500 && window.scrollY <= 1000):
+            //         bodyTag.classList.remove(...cls);
+            //         bodyTag.classList.add("two");
+            //         break;
+            //     case (window.scrollY > 1000 && window.scrollY <= 1500):
+            //         bodyTag.classList.remove(...cls);
+            //         bodyTag.classList.add('three');
+            //         break;
+            //     case (window.scrollY > 1500 && window.scrollY <= 2000):
+            //         bodyTag.classList.remove(...cls);
+            //         bodyTag.classList.add('four');
+            //         break;
+            //     case (window.scrollY > 2000):
+            //         bodyTag.classList.remove(...cls);
+            //         bodyTag.classList.add('five');
+            //         break;
+            //     default:
+            //         bodyTag.classList.remove(...cls);
+            //         bodyTag.classList.add('one');
+            //         break;
+            // }
+        });
+
+    </script>
+</body>
+</html>

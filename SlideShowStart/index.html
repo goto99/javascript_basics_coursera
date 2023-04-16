@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Basic JavaScript Slideshow</title>
+</head>
+
+<body>
+	<div>
+    	<img src="image1.jpg" alt="slideshow image" id="myimage">
+    </div>
+    
+    <p><a href="#" id="previous">previous</a> --- <a href="#" id="next">next</a></p>
+<script>
+    const imgTag = document.getElementById('myimage');
+    const previousTag = document.getElementById('previous');
+    const nextTag = document.getElementById('next');
+    let images = ['image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg', 'image5.jpg'];
+    let currentImage = 0;
+
+    previousTag.addEventListener('click', function(){
+        if (currentImage > 0) {
+            currentImage--; 
+        }else {
+            currentImage = images.length - 1;
+        }
+        imgTag.src = images[currentImage];
+    });
+
+    nextTag.addEventListener('click', function(){
+        if (currentImage < images.length - 1) {
+            currentImage++; 
+        }else {
+            currentImage = 0;
+        }
+        imgTag.src = images[currentImage];
+    });
+
+</script>
+</body>
+
+</html>

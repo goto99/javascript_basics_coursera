@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript Basic Challenges: Challenge 28</title>
+    <style>
+        div {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(255,0,0);
+            transition: all 2s;
+        }
+
+        .big {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(0,0,255);
+            border-radius: 50%;
+            transition: all 2s;
+        }
+    </style>
+</head>
+<body>
+    <h1>Javascript Basic Challenges: Challenge 28</h1>
+    <div>
+
+    </div>
+
+    <script>
+        const divTag = document.querySelector('div');
+        divTag.addEventListener('mouseover', function(event){
+            divTag.classList.add('big'); // Not ".big" here!.
+        });
+        divTag.addEventListener('mouseleave', function(event){
+            divTag.classList.remove('big'); // Not ".big" here!.
+        });
+    </script>
+</body>
+</html>

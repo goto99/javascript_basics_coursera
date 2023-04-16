@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript Basic Challenges: Challenge 30</title>
+    <style>
+        body { height: 3000px;}
+        .one { background-color: beige; transition: all 3s; }
+        .two { background-color: blueviolet; transition: all 3s;}
+        .three { background-color: coral; transition: all 3s;}
+        .four { background-color: cornflowerblue; transition: all 3s;}
+        .five { background-color: darkgoldenrod; transition: all 3s;}
+    </style>
+</head>
+<body class='one'>
+    <h1>Javascript Basic Challenges: Challenge 30</h1>
+    <p>Press the B key to turn the page beige</p>
+    <p>Press the V key to turn the page blueviolet</p>
+    <p>Press the C key to turn the page coral</p>
+    <p>Press the F key to turn the page cornflowerblue</p>
+    <p>Press the G key to turn the page darkgoldenrod</p>
+
+    <script>
+        const bodyTag = document.querySelector('body');
+        document.addEventListener('keydown', function(event){
+            
+            switch (event.key) {
+                case 'B':
+                    bodyTag.className = 'one';
+                    break;
+                case 'V':
+                    bodyTag.className = 'two';
+                    break;
+                case 'C':
+                    bodyTag.className = 'three';
+                    break;
+                case 'F':
+                    bodyTag.className = 'four';
+                    break;
+                case 'G':
+                    bodyTag.className = 'five';
+                    break;
+                default:
+                    alert("Wrong key pressed");
+                    break;
+            }
+
+            // switch (true) {
+            //     case (window.scrollY > 500 && window.scrollY <= 1000):
+            //         bodyTag.classList.remove(...cls);
+            //         bodyTag.classList.add("two");
+            //         break;
+            //     case (window.scrollY > 1000 && window.scrollY <= 1500):
+            //         bodyTag.classList.remove(...cls);
+            //         bodyTag.classList.add('three');
+            //         break;
+            //     case (window.scrollY > 1500 && window.scrollY <= 2000):
+            //         bodyTag.classList.remove(...cls);
+            //         bodyTag.classList.add('four');
+            //         break;
+            //     case (window.scrollY > 2000):
+            //         bodyTag.classList.remove(...cls);
+            //         bodyTag.classList.add('five');
+            //         break;
+            //     default:
+            //         bodyTag.classList.remove(...cls);
+            //         bodyTag.classList.add('one');
+            //         break;
+            // }
+        });
+
+    </script>
+</body>
+</html>

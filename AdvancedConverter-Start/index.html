@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Distance Converter</title>
+
+	<!--/ /-------- Normalize CSS --------/ /-->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+	
+	<!--/ /-------- Google Fonts --------/ /-->
+	<link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans&display=swap" rel="stylesheet">
+	
+	<!--/ /-------- My Styles --------/ /-->
+	<link href="styles.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<h1>Miles to Kilometers Converter</h1>
+    
+    <div class="container top">
+    	<p>Type in a number of miles and click the button to convert the distance to kilometers.</p>
+        
+        <form method="post" id="convert">
+        
+        	<input type="text" name="distance" id="distance" placeholder="distance">
+            <input type="submit" name="convertdist" value="Convert Distance">
+        
+        </form>
+    </div>
+    <div class="container bottom" id="answer">
+    	<h2 class="invisible">Answer goes here</h2>
+    </div>
+    
+    <p id="directions">Press the "K" key to switch to kilometer converstion, press the "M" key to switch to mile conversion</p>
+
+	<script>
+		const h1Tag = document.querySelector('h1');
+		const topDiv = document.getElementsByClassName('container top')[0];
+		const hintP = topDiv.querySelector('p');
+		const form = document.getElementById('convert');
+		const distance = document.getElementById('distance');
+		const h2Tag = document.querySelector('.invisible');
+		h2Tag.style.color = 'black';
+		const mToKilo = 1.609344;
+		const kiloToMile = 1 / mToKilo;
+		let fromUnit = "miles";
+		let toUnit = "kilometers";
+		let ratio = mToKilo;
+
+		document.addEventListener('keydown', function(event){
+			// console.log(event.key);
+			if(event.key === 'M') {
+				h1Tag.innerHTML = "Miles to Kilometers Converter"
+				hintP.innerHTML = "Type in a number of miles and click the button to convert the distance to kilometers."
+				fromUnit = "miles";
+				toUnit = "kilometers";
+				ratio = mToKilo;
+			}else if (event.key === 'K'){
+				h1Tag.innerHTML = "Kilometers to Miles Converter"
+				hintP.innerHTML = "Type in a number of kilometers and click the button to convert the distance to miles."
+				ratio = kiloToMile;
+				fromUnit = "kilometers";
+				toUnit = "miles";
+			}
+
+		});
+		
+		form.addEventListener('submit', function(event){
+			event.preventDefault();
+			const from = parseFloat(distance.value);
+			if(isNaN(from)){
+				h2Tag.innerHTML = `Please provide a number!`;
+			}else{
+				let to = from * ratio;
+				// alert(kilo.toFixed(3));
+				h2Tag.innerHTML = `${from} ${fromUnit} converts to ${to.toFixed(3)} ${toUnit}!`;
+			}
+		});
+	</script>
+</body>
+</html>
